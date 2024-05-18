@@ -1,5 +1,10 @@
 <?php
-    require __DIR__ . '/../vendor/autoload.php';
+
+session_start();
+require __DIR__ . '/../vendor/autoload.php';
+
+
+$db = new \Mac\Untitled10\Database();
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
 
@@ -8,11 +13,30 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $contactsController = new \Mac\Untitled10\Controllers\ContactsController();
     $catalogueController = new \Mac\Untitled10\Controllers\CatalogueController();
 
+    $loginController = new \Mac\Untitled10\Controllers\LoginController();
+
+    $authMiddleware = new \Mac\Untitled10\AuthMiddleware();
+
     $r->addRoute('GET', '/', [$homeController, 'index']);
     $r->addRoute('GET', '/home', [$homeController, 'index']);
     $r->addRoute('GET', '/about', [$aboutController, 'index']);
-    $r->addRoute('GET', '/contacts', [$contactsController, 'index']);
     $r->addRoute('GET', '/catalogue', [$catalogueController, 'index']);
+
+    $r->addRoute('GET', '/login', [$loginController, 'index']);
+    $r->addRoute('POST', '/login', [$loginController, 'auth']);
+
+    $r->addRoute('GET', '/logout', function ($vars) {
+        session_destroy();
+        header('Location: /login');
+    });
+
+    // Додаємо "обгортку" для контролера сторінки контактів у вигляді мідлвару
+    $r->addRoute('GET', '/contacts', function ($vars) use ($authMiddleware, $contactsController) {
+        return $authMiddleware->handle([$contactsController, 'index'], $vars);
+    });
+
+    $r->addRoute('POST', '/',[$homeController, 'handleForm']);
+    $r->addRoute('GET', '/home/delete', [$homeController, 'handleFormDelete']);
 });
 
 // Fetch method and URI from somewhere

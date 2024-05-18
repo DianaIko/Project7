@@ -25,14 +25,21 @@ final class Template6b08efeb75 extends Latte\Runtime\Template
 		echo LR\Filters::escapeHtmlText($title) /* line 9 */;
 		echo '
     </title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
 
 ';
-		$this->createTemplate('nav.latte', $this->params, 'include')->renderToContentType('html') /* line 14 */;
-		$this->createTemplate("pages/{$page}.latte", $this->params, 'include')->renderToContentType('html') /* line 15 */;
-		$this->createTemplate('footer.latte', $this->params, 'include')->renderToContentType('html') /* line 16 */;
+		$this->createTemplate('nav.latte', $this->params, 'include')->renderToContentType('html') /* line 15 */;
+		echo '<div class="w3-container">
+';
+		$this->createTemplate("pages/{$page}.latte", $this->params, 'include')->renderToContentType('html') /* line 17 */;
+		echo '</div>
+
+';
+		$this->createTemplate('footer.latte', $this->params, 'include')->renderToContentType('html') /* line 20 */;
 		echo '
+
 </body>
 </html>
 ';

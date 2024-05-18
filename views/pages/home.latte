@@ -1,5 +1,26 @@
-{$content}
-<br>
-{foreach $data as $student}
-    {$student}<br>
-{/foreach}
+<div class="w3-panel w3-blue-gray w3-leftbar w3-border-black">
+    {$content}
+</div>
+
+<table class="w3-table-all">
+    <tr class="w3-blue-gray">
+        <th>ID</th>
+        <th>Назва товару</th>
+        <th>Кількість товару</th>
+        <th>Дія</th>
+    </tr>
+    {foreach $data as $product}
+        <tr class="w3-hover-light-grey">
+            <td>{$product['id']}</td>
+            <td>{$product['name']}</td>
+            <td>{$product['age'] ?? '0'}</td>
+            <td>
+                <a href="/home/delete?id={$product['id']}" class="w3-button w3-red">Видалити</a>
+            </td>
+        </tr>
+    {/foreach}
+</table>
+
+<div class="w3-container w3-blue-gray w3-padding-16 w3-margin-top">
+    {include '../form.latte'}
+</div>

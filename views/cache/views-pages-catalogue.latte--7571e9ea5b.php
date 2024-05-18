@@ -13,13 +13,16 @@ final class Template7571e9ea5b extends Latte\Runtime\Template
 		extract($ʟ_args);
 		unset($ʟ_args);
 
-		echo LR\Filters::escapeHtmlText($content) /* line 1 */;
+		echo '<div class="w3-panel w3-blue-gray w3-leftbar w3-border-black">
+    ';
+		echo LR\Filters::escapeHtmlText($content) /* line 2 */;
 		echo '
+</div>
 <br>
 ';
-		foreach ($date as $item) /* line 3 */ {
+		foreach ($date as $item) /* line 5 */ {
 			echo '    ';
-			echo LR\Filters::escapeHtmlText($item) /* line 4 */;
+			echo LR\Filters::escapeHtmlText($item) /* line 6 */;
 			echo '<br>
 ';
 
@@ -32,7 +35,7 @@ final class Template7571e9ea5b extends Latte\Runtime\Template
 		extract($this->params);
 
 		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
-			foreach (array_intersect_key(['item' => '3'], $this->params) as $ʟ_v => $ʟ_l) {
+			foreach (array_intersect_key(['item' => '5'], $this->params) as $ʟ_v => $ʟ_l) {
 				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
 			}
 		}
