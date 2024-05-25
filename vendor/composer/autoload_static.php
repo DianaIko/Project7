@@ -16,6 +16,10 @@ class ComposerStaticInitd0fab24a396516f5460c55c4b01c83bf
         array (
             'Mac\\Untitled10\\' => 15,
         ),
+        'J' => 
+        array (
+            'JetBrains\\PhpStorm\\' => 19,
+        ),
         'F' => 
         array (
             'FastRoute\\' => 10,
@@ -26,6 +30,10 @@ class ComposerStaticInitd0fab24a396516f5460c55c4b01c83bf
         'Mac\\Untitled10\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'JetBrains\\PhpStorm\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jetbrains/phpstorm-attributes/src',
         ),
         'FastRoute\\' => 
         array (

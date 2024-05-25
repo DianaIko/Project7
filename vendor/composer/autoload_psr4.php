@@ -7,5 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Mac\\Untitled10\\' => array($baseDir . '/src'),
+    'JetBrains\\PhpStorm\\' => array($vendorDir . '/jetbrains/phpstorm-attributes/src'),
     'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
 );

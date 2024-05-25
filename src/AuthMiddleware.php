@@ -4,10 +4,14 @@ namespace Mac\Untitled10;
 
 class AuthMiddleware
 {
-    public function handle($handler, $vars)
+    /**
+     * @param callable $handler
+     * @param array<string> $vars
+     */
+    public function handle(callable $handler, array $vars): void
     {
-        if (!empty($_SESSION['login']) && $_SESSION['login'] === 'Test') {
-            return call_user_func($handler, $vars);
+        if (!empty($_SESSION['login']) && $_SESSION['login'] === 'User') {
+            call_user_func($handler, $vars);
         } else {
             header('Location: /login'); // Перенаправити на сторінку входу
             exit;

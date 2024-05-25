@@ -4,8 +4,14 @@ namespace Mac\Untitled10;
 use Latte;
 class Viewer
 {
+    /**
+     * @var array<string, mixed>
+     */
     private array $data =[];
-
+    /**
+     * Viewer constructor.
+     * @param array<string, mixed> $data
+     */
     public function __construct(array $data=[])
     {
         $this->data= $data;

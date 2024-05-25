@@ -21,8 +21,10 @@ class HomeController
         $data = [];
 
         // Завантажуємо дані з бази даних
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $data[] = $row;
+        if ($stmt !== null) {
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $data[] = $row;
+            }
         }
         //echo 'Home Page';
         $view = new Viewer([

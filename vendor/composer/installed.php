@@ -3,13 +3,22 @@
         'name' => 'mac/untitled10',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'dd506fde273cf150e384e32ab3ee8dd2a4f99ed7',
+        'reference' => 'b98dd4bbf616ad67ff0256b679638498b543d6e8',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'jetbrains/phpstorm-attributes' => array(
+            'pretty_version' => '1.1',
+            'version' => '1.1.0.0',
+            'reference' => '22fb28d679deceedba8366dbae65cc8ebfc17e26',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../jetbrains/phpstorm-attributes',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'latte/latte' => array(
             'pretty_version' => 'v3.0.14',
             'version' => '3.0.14.0',
@@ -22,7 +31,7 @@
         'mac/untitled10' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'dd506fde273cf150e384e32ab3ee8dd2a4f99ed7',
+            'reference' => 'b98dd4bbf616ad67ff0256b679638498b543d6e8',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

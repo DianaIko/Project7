@@ -19,8 +19,10 @@ class AboutController
         $data = [];
 
         // Завантажуємо дані з бази даних
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $data[] = $row;
+        if ($stmt !== null) {
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $data[] = $row;
+            }
         }
 
         $view = new Viewer(

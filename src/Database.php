@@ -43,8 +43,10 @@ class Database
 
         $this->connection->exec($command);
     }
-
-    public static function executeQuery($sql, array $params = []): ?PDOStatement
+    /**
+     * @param array<string, mixed> $params
+     */
+    public static function executeQuery(string $sql, array $params = []): ?PDOStatement
     {
         $stmt = self::getInstance()->getConnection()->prepare($sql);
         $stmt->execute($params);

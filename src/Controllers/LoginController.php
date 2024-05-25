@@ -36,7 +36,7 @@ class LoginController
 
         $login = $_POST['login'] ?? '';
 
-        if ($login === 'Test') {
+        if ($login === 'User') {
             $_SESSION['login'] = $login;
             header('Location: /contacts');
         } else {
